@@ -827,6 +827,41 @@ body {
 }
 .dm-copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
+<style id="v9-restyle">
+/* v9 restyle: same behaviour, v9 tokens (mahogany/gold, 22px radius, 44px targets), night theme. */
+:root{--v9-ink:#1C1006;--v9-gold:#C9963A;--v9-goldt:#86601c}
+section.dm{background:var(--dm-bg)}
+.dm-route-go{color:#1C1006!important}
+:root[data-theme=dark]{color-scheme:dark;--v9-ink:#f3ece0;--v9-gold:#dcb062;--v9-goldt:#dcb062;
+ --dm-bg:#14100b;--dm-parchment:#1b150f;--dm-surface:rgba(31,25,18,.92);--dm-surface-2:#1f1912;--dm-glass:rgba(31,25,18,.65);--dm-mahogany:#f3ece0;
+ --dm-text-primary:#f3ece0;--dm-text-body:#c9bba8;--dm-text-muted:#b3a58f;--dm-text-subtle:#8c7e6b;
+ --dm-border:rgba(255,240,215,.18);--dm-sep:rgba(255,240,215,.12)}
+html,body{background:var(--dm-bg)}
+:root[data-theme=dark] body{background:#14100b}
+:root.embed body{padding:0}
+:root.embed .dm-header,:root.embed .dm-footer{display:none}
+:root[data-theme=dark] .dm-ftab{background:rgba(255,240,215,.06);color:#c9bba8;border-color:rgba(255,240,215,.2)}
+:root[data-theme=dark] .dm-ftab.active,:root[data-theme=dark] .dm-ftab[aria-pressed=true]{background:#dcb062;color:#14100b;border-color:#dcb062}
+:root.embed section.dm{border-radius:0;box-shadow:none;max-width:none}
+.dm-ftab{min-height:44px;font-size:.875rem;padding:0 16px}
+.dm-ftab.active,.dm-ftab[aria-pressed=true]{background:var(--v9-gold);border-color:var(--v9-gold);color:#1C1006}
+.dm-card,.dm-detail{border-radius:22px}
+.dm-route-show,.dm-route-go,.dm-detail a{min-height:44px;font-size:.8125rem;padding:0 16px}
+:root[data-theme=dark] .dm-map-wrap .gm-style{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.7)}
+:root[data-theme=dark] .dm-map-wrap gmp-advanced-marker{filter:invert(1) hue-rotate(180deg)}
+:root[data-theme=dark] .dm-card,:root[data-theme=dark] .dm-detail{color:#f3ece0}
+:root[data-theme=dark]{--dm-text-subtle:#a99b86;--dm-gold-dk:#e8c98a}
+:root[data-theme=dark] .dm-card-cat,:root[data-theme=dark] .dm-card-stars-pips,:root[data-theme=dark] .dm-d-name,:root[data-theme=dark] .dm-d-badge,:root[data-theme=dark] .dm-d-row span[style*="1A7A40"]{color:#e8c98a!important}
+.dm-d-row.dm-copyable{min-height:44px;align-items:center}
+:root[data-theme=dark] .dm-open-badge.open{color:#7fd9a6}
+:root[data-theme=dark] .dm-open-badge.closed{color:#f2a595}
+:root[data-theme=dark] .dm-host-pick,:root[data-theme=dark] .dm-d-cta-primary{color:#14100b}
+:root.embed,:root.embed body{width:100%;min-height:100dvh;overflow-x:hidden}
+:root.embed section.dm{width:100%;min-height:100dvh}
+</style>
+<script>/* v9 restyle: theme comes from ?theme=day|night (guide passes it), else the phone setting. ?embed=1 drops the card frame. */
+(function(){var q=location.search,m=q.match(/[?&]theme=(day|night|dark|light)/),d=m?(m[1]==='night'||m[1]==='dark'):matchMedia('(prefers-color-scheme:dark)').matches;
+document.documentElement.dataset.theme=d?'dark':'light';if(/[?&]embed=1/.test(q))document.documentElement.classList.add('embed')})();</script>
 </head>
 
 <body>
