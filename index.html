@@ -1412,6 +1412,7 @@ window.initDiningMap = function() {
     center: { lat: 6.1185, lng: 125.178 },
     zoom: 15,
     mapId: '4ef6ca40dda26fa93d3d60db',
+    colorScheme: document.documentElement.dataset.theme === 'dark' ? 'DARK' : 'LIGHT',   /* v9: night theme gets the dark map */
     disableDefaultUI: false,
     zoomControl: true,
     mapTypeControl: false,
