@@ -847,8 +847,6 @@ html,body{background:var(--dm-bg)}
 .dm-ftab.active,.dm-ftab[aria-pressed=true]{background:var(--v9-gold);border-color:var(--v9-gold);color:#1C1006}
 .dm-card,.dm-detail{border-radius:22px}
 .dm-route-show,.dm-route-go,.dm-detail a{min-height:44px;font-size:.8125rem;padding:0 16px}
-:root[data-theme=dark] .dm-map-wrap .gm-style{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.7)}
-:root[data-theme=dark] .dm-map-wrap gmp-advanced-marker{filter:invert(1) hue-rotate(180deg)}
 :root[data-theme=dark] .dm-card,:root[data-theme=dark] .dm-detail{color:#f3ece0}
 :root[data-theme=dark]{--dm-text-subtle:#a99b86;--dm-gold-dk:#e8c98a}
 :root[data-theme=dark] .dm-card-cat,:root[data-theme=dark] .dm-card-stars-pips,:root[data-theme=dark] .dm-d-name,:root[data-theme=dark] .dm-d-badge,:root[data-theme=dark] .dm-d-row span[style*="1A7A40"]{color:#e8c98a!important}
@@ -858,10 +856,18 @@ html,body{background:var(--dm-bg)}
 :root[data-theme=dark] .dm-host-pick,:root[data-theme=dark] .dm-d-cta-primary{color:#14100b}
 :root.embed,:root.embed body{width:100%;min-height:100dvh;overflow-x:hidden}
 :root.embed section.dm{width:100%;min-height:100dvh}
+:root[data-theme=dark] .dm-d-grab-btn{color:#7fd9a6}
+.dm-route-show,.dm-route-go{padding:0 12px}
+.dm-route-bar{gap:.35rem;padding-left:.6rem;padding-right:.6rem}
+.dm-host-pick{color:#1C1006}
+:root[data-theme=dark] .dm-map-wrap,:root[data-theme=dark] #diningMap,:root[data-theme=dark] .dm-map-loading{background:#1f1912}
+:root[data-theme=dark] .dm-map-loading-txt{color:#c9bba8}
+:root:not([data-theme=dark]) .dm-card-dist{color:#7A6A52}
 </style>
 <script>/* v9 restyle: theme comes from ?theme=day|night (guide passes it), else the phone setting. ?embed=1 drops the card frame. */
 (function(){var q=location.search,m=q.match(/[?&]theme=(day|night|dark|light)/),d=m?(m[1]==='night'||m[1]==='dark'):matchMedia('(prefers-color-scheme:dark)').matches;
-document.documentElement.dataset.theme=d?'dark':'light';if(/[?&]embed=1/.test(q))document.documentElement.classList.add('embed')})();</script>
+document.documentElement.dataset.theme=d?'dark':'light';if(/[?&]embed=1/.test(q))document.documentElement.classList.add('embed')})();
+try{if(!navigator.clipboard)Object.defineProperty(navigator,'clipboard',{value:{writeText:function(){return Promise.reject(new Error('clipboard unavailable'))}},configurable:true})}catch(e){}</script>
 </head>
 
 <body>
